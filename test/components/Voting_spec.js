@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Voting from '../../src/components/Voting.jsx';
 import {expect} from 'chai';
+import sinon from 'sinon';
 
 
 describe('Voting', () => {
@@ -14,9 +15,10 @@ describe('Voting', () => {
     });
 
     it('invokes callback when a button is clicked', () => {
-        let votedWith;
-        const vote = (entry) => votedWith = entry;
-        const wrapper = shallow(<Voting pair={['Trainspotting', '28 Days Later']} vote={vote} />);
-
+        const onVote = sinon.spy();
+        const wrapper = shallow(<Voting pair={['Trainspotting', '28 Days Later']} vote={onVote} />);
+        console.log(wrapper.debug());
+        wrapper.find('button').first().simulate('click');
+        expect(onVote.calledOnce).to.equal(true);
     });
 });
