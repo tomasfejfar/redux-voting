@@ -5,6 +5,9 @@ import Voting from './components/Voting';
 const pair = ['Trainspotting', 'Brak'];
 
 ReactDOM.render(
-    <Voting pair={pair} />,
+    <div>
+    <Voting pair={pair} vote={(entry) => {this.props.hasVoted = entry}} hasVoted="Trainspotting"/>
+        <Voting pair={pair} winner="Trainspotting"/>
+        </div>,
     document.getElementById('app')
 );
