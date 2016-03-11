@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export default React.createClass({
-    mixins: [PureRenderMixin],
-    getPair() {
-        return this.props.pair || [];
+  mixins: [PureRenderMixin],
+  getPair() {
+      return this.props.pair || [];
     },
-    getVotes(entry) {
-        if (this.props.tally && this.props.tally.has(entry)) {
-            return this.props.tally.get(entry);
+  getVotes(entry) {
+      if (this.props.tally && this.props.tally.has(entry)) {
+          return this.props.tally.get(entry);
         }
-        return 0;
+      return 0;
     },
-    render() {
-        return <div className="results">
+  render() {
+      return <div className="results">
             {this.getPair().map((entry) =>
                 <div key={entry} className="entry">
                     <h1>{entry}</h1>
@@ -22,6 +22,6 @@ export default React.createClass({
                     </div>
                 </div>
             )}
-        </div>
+        </div>;
     }
 });

@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Winner from "./Winner"
-import Vote from "./Vote.jsx"
+import Winner from "./Winner";
+import Vote from "./Vote.jsx";
 
 export default React.createClass({
-    mixins: [PureRenderMixin],
-    hasWinner() {
-        return !!this.props.winner;
+  mixins: [PureRenderMixin],
+  hasWinner() {
+      return !!this.props.winner;
     },
-    render () {
-        return <div className="voting">
+  render() {
+      return (<div className="voting">
             {this.hasWinner() ?
                 <Winner winner={this.props.winner} /> :
                 <Vote {...this.props} />
             }
-        </div>;
+        </div>);
     }
 });
