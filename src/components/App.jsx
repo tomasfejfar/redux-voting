@@ -6,7 +6,7 @@ const tally = new Map({ 'Trainspotting': 3, '28 Days Later': 1 });
 
 export default React.createClass({
   render() {
-      console.log(this.props);
-      return React.cloneElement(this.props.children, { pair: pair, tally: tally });
-    }
+    console.log(this.props);
+    return React.cloneElement(this.props.children, { pair, tally });
+  },
 });

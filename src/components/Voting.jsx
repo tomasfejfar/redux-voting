@@ -6,14 +6,14 @@ import Vote from "./Vote.jsx";
 export default React.createClass({
   mixins: [PureRenderMixin],
   hasWinner() {
-      return !!this.props.winner;
-    },
+    return !!this.props.winner;
+  },
   render() {
-      return (<div className="voting">
-            {this.hasWinner() ?
-                <Winner winner={this.props.winner} /> :
-                <Vote {...this.props} />
-            }
-        </div>);
-    }
+    return (<div className="voting">
+      {this.hasWinner() ?
+        <Winner winner={this.props.winner} /> :
+        <Vote {...this.props} />
+      }
+    </div>);
+  },
 });
