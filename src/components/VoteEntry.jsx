@@ -1,6 +1,5 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import VoteEntry from '../../src/components/VoteEntry';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
@@ -14,10 +13,14 @@ export default React.createClass({
     return this.props.hasVoted === entry;
   },
   render() {
-    return (<div className="voting">
-      {this.getPair().map(entry =>
-        <VoteEntry key={entry} entry={entry} />
-      )}
-    </div>);
+    return (<button
+      disabled={this.isDisabled()}
+      onClick={() => this.props.vote(this.props.entry)}
+    >
+      <h1>{this.props.entry}</h1>
+      {this.props.hasVoted ?
+        <div className="label">Voted</div> :
+        null}
+    </button>);
   },
 });

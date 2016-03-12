@@ -1,11 +1,16 @@
-export function d(...args) {
-  args.forEach(function (item) {
-      console.log('--------');
-      console.log(item);
-    });
+const d = function d(...args) {
+  args.forEach((item) => {
+    console.log('--------');
+    console.log(item);
+  });
   console.log('--------');
-}
+};
 
-export function dr(msg) {
+const dr = function dr(msg) {
   return console.log(msg.debug());
-}
+};
+
+export {
+  d,
+  dr,
+};
