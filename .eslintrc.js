@@ -7,9 +7,11 @@ module.exports = {
   "env": {
     "mocha": true
   },
-  "settings": {
-    "react": {
-      "prefer-es6-class": [true, 'never']
-    },
+  "rules": {
+    "react/prefer-es6-class": [2, 'never'],
+    "react/prop-types": [0],
+    "react/prefer-stateless-function": [0],
+    "no-console": [0],
+    "quote-props": [0],
   },
 };
