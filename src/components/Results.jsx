@@ -1,5 +1,6 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import ResultEntry from './ResultEntry';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
@@ -15,12 +16,7 @@ export default React.createClass({
   render() {
     return (<div className="results">
       {this.getPair().map((entry) =>
-        <div key={entry} className="entry">
-          <h1>{entry}</h1>
-          <div className="voteCount">
-            {this.getVotes(entry)}
-          </div>
-        </div>
+        <ResultEntry key={entry} entry={entry} votes={this.getVotes(entry)} />
       )}
     </div>);
   },

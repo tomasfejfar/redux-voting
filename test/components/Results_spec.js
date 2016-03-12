@@ -10,11 +10,11 @@ const tally = new Map({ Trainspotting: 3, '28 Days Later': 1 });
 describe('Results', () => {
   it('display entries with tally results', () => {
     const wrapper = shallow(<Results pair={pair} tally={tally} />);
-    const entries = wrapper.find('div.entry');
+    const entries = wrapper.find('ResultEntry');
     expect(entries.length).to.eq(2);
-    expect(entries.at(0).find('h1')).to.have.text('Trainspotting');
-    expect(entries.at(1).find('h1')).to.have.text('28 Days Later');
-    expect(entries.at(0).find('.voteCount')).to.have.text('3');
-    expect(entries.at(1).find('.voteCount')).to.have.text('1');
+    expect(entries.at(0)).to.have.prop('entry', 'Trainspotting');
+    expect(entries.at(1)).to.have.prop('entry', '28 Days Later');
+    expect(entries.at(0)).to.have.prop('votes', 3);
+    expect(entries.at(1)).to.have.prop('votes', 1);
   });
 });
