@@ -54,8 +54,14 @@ describe('application logic', () => {
           pair: List.of('Trainspotting', 'Shawshank'),
           tally: Map({
             'Trainspotting': 3,
-            'Shawshank': 2,
+            'Shawshank': 1,
           }),
+          history: List.of([
+            Map({
+              'X': 3,
+              'Y': 1,
+            }),
+          ]),
         }),
       });
       const nextState = next(state);
@@ -65,14 +71,21 @@ describe('application logic', () => {
           pair: List.of('Brak', 'Forest Gump'),
           history: List.of([
             Map({
+              'X': 3,
+              'Y': 1,
+            }),
+            Map({
               'Trainspotting': 3,
-              'Shawshank': 2,
-            })]),
+              'Shawshank': 1,
+            }),
+          ]),
         }),
       });
-      console.log('NEXT', nextState);
-      console.log('EXPE', expected);
-      expect(nextState).to.equal(expected);
+      console.log('NEXT', nextState.toJSON());
+      console.log('EXPE', expected.toJSON());
+      console.log('NEXT', nextState.set('key', 'val'));
+      console.log('EXPE', expected.set('key', 'val'));
+      expect(nextState.toJSON()).to.eq(expected.toJSON());
     });
 
     it('add vote to history', () => {

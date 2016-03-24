@@ -32,6 +32,7 @@ export function next(state) {
   }
 
   const tally = voteState.has('tally') ? voteState.get('tally') : false;
+  console.log('TALLY', tally);
 
 
   const resultState = state
@@ -39,9 +40,7 @@ export function next(state) {
     .setIn(['entries'], entries.skip(2))
     .removeIn(['vote', 'tally']);
   if (tally) {
-    return resultState.updateIn(['vote', 'history'], fromJS([]), history => {
-      return history.push(tally);
-    });
+    return resultState.updateIn(['vote', 'history'], new List(), history => history.push(tally));
   }
 
   return resultState;
